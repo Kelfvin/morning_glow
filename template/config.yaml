@@ -1,0 +1,13 @@
+smtp: 
+  smtp_server: smtp.qq.com
+  account: xxxx@qq.com
+  password: xxxxxx
+email_list:
+  - xxxxxx@163.com
+send_time:
+  - "08:00"
+  - "12:00"
+
+quality_threshold: 0.05
+
+query_city: 四川省-成都

@@ -44,14 +44,19 @@ def fetch_data() -> dict:
     params = {
         "query_id": query_id,
         "intend": "select_city",
-        "query_city": "四川省-成都",
+        "query_city": config.query_city,
         "event_date": None,
         "event": "set_1",
         "times": None,
         "model": "GFS"
     }
 
-    response = requests.get(url, params=params)
+    headers ={
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+    }
+
+    response = requests.get(url, params=params,headers=headers)
+
     if response.status_code != 200:
         logging.error(f"Failed to fetch data. Status code: {response.status_code}")
         return
@@ -135,7 +140,11 @@ def main():
     #                                   For Test                                   #
     # ---------------------------------------------------------------------------- #
     
-    job()  # 直接执行一次任务，便于测试
+    # job()  # 直接执行一次任务，便于测试
+    logging.info("尝试请求数据....")
+    fetch_data()
+    logging.info("请求完毕！")
+
 
     # 定时任务设置
     for send_time in config.send_time:

@@ -11,3 +11,9 @@ wheels/
 
 /config.yaml
 *.log
+
+test/
+
+cache/
+
+logs/

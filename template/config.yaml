@@ -11,3 +11,4 @@ send_time:
 quality_threshold: 0.05
 
 query_city: 四川省-成都
+log_path: logs/morning_glow.log
